@@ -18,8 +18,8 @@ pipeline {
                  pwd
                  docker ps
                  docker login -u admin -p Harbor12345 localhost:80
-                 docker build -t localhost:80/test-project1/projectA:v1 .
-                 docker push localhost:80/test-project1/projectA:v1
+                 docker build -t localhost:80/test-project1/projecta:v1 .
+                 docker push localhost:80/test-project1/projecta:v1
                  """
                 
             }
