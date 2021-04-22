@@ -25,8 +25,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-            withKubeConfig([credentialsId: 'userAdmin', serverUrl: 'https://10.1.2.58:6443']) {
-              sh 'kubectl apply -f k8/deployment.yaml'
+            steps {
+                withKubeConfig([credentialsId: 'userAdmin', serverUrl: 'https://10.1.2.58:6443']) {
+                  sh 'kubectl apply -f k8/deployment.yaml'
+                }
             }
         }
     }
