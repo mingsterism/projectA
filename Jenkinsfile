@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withKubeCredentials([
-                    [credentialsId: 'userAdmin', serverUrl: 'https://10.1.2.58:6443']
+                    [credentialsId: 'adminUser', serverUrl: 'https://10.1.2.58:6443']
                 ]) {
                   sh 'kubectl apply -f k8/deployment.yaml'
                 }
