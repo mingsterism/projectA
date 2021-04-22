@@ -38,7 +38,8 @@ pipeline {
                 withKubeCredentials([
                     [credentialsId: 'adminUser', serverUrl: 'https://10.1.2.58:6443']
                 ]) {
-                  sh './kubectl apply -f k8/deployment.yaml'
+                  sh 'ls'
+                  sh './kubectl -n ultron-app apply -f k8/deployment.yaml'
                 }
             }
         }
