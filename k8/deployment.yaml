@@ -15,7 +15,7 @@ spec:
         app: projA
     spec:
       containers:
-        - image: docker pull localhost/test-project1/projecta@sha256:c8c9b0f74930cda16b0fb340b99b23ed4523a1d4036e99cfb325dcde3f38d6d7
+        - image: localhost/test-project1/projecta@sha256:c8c9b0f74930cda16b0fb340b99b23ed4523a1d4036e99cfb325dcde3f38d6d7
           name: projecta
           ports:
             - containerPort: 8080
