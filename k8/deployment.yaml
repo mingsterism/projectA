@@ -1,0 +1,34 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: projA-deployment
+  labels:
+    app: projA
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: projA
+  template:
+    metadata:
+      labels:
+        app: projA
+    spec:
+      containers:
+        - image: localhost:80/test-project1/projecta
+          name: projecta
+          ports:
+            - containerPort: 8080
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: projA
+spec:
+  selector:
+    app: projA
+  ports:
+  - port: 80
+    targetPort: 8080
+
