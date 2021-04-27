@@ -11,6 +11,16 @@ pipeline {
             }
         }
         
+           stage('Get docker') {
+            steps {  
+                sh 'curl -LO "https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz"'
+                sh 'ls'
+                sh 'chmod u+x ./docker'
+                sh 'sudo cp docker/* /usr/bin/'
+                sh 'docker'
+            }
+          }
+        
         stage('Build'){
             steps{
               sh """
@@ -33,15 +43,6 @@ pipeline {
             }
           }
         
-         stage('Get docker') {
-            steps {  
-                sh 'curl -LO "https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz"'
-                sh 'ls'
-                sh 'chmod u+x ./docker'
-                sh 'sudo cp docker/* /usr/bin/'
-                sh 'docker'
-            }
-          }
 
         stage('Deploy') {
             steps {
