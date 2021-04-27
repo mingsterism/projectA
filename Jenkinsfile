@@ -11,14 +11,11 @@ pipeline {
             }
         }
         
-           stage('Get docker') {
+           stage('Get ctr') {
             steps {  
-                sh 'curl -LO "https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz"'
-                sh 'tar xzvf ./docker-18.06.3-ce.tgz'
-                sh 'ls'
-                sh 'chmod u+x ./docker'
-                sh './docker/docker'
-                sh './docker/docker ls'
+                sh 'wget https://github.com/containerd/containerd/releases/download/v1.4.4/containerd-1.4.4-linux-amd64.tar.gz'
+                sh 'tar xvf containerd-1.4.4-linux-amd64.tar.gz'
+                sh './bin/ctr image pull docker.io/library/hello-world:latest'
 
             }
           }
