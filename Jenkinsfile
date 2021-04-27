@@ -17,8 +17,7 @@ pipeline {
                 sh 'tar xzvf ./docker-18.06.3-ce.tgz'
                 sh 'ls'
                 sh 'chmod u+x ./docker'
-                sh 'cp docker/* /usr/bin/'
-                sh 'docker'
+                sh './docker/docker'
             }
           }
         
@@ -27,10 +26,10 @@ pipeline {
               sh """
                  ls
                  pwd
-                 docker ps
-                 docker login -u admin -p Harbor12345 localhost:80
-                 docker build -t localhost:80/test-project1/projecta:v1 .
-                 docker push localhost:80/test-project1/projecta:v1
+                 ./docker/docker ps
+                 ./docker/docker login -u admin -p Harbor12345 localhost:80
+                 ./docker/docker build -t localhost:80/test-project1/projecta:v1 .
+                 ./docker/docker push localhost:80/test-project1/projecta:v1
                  """
                 
             }
