@@ -18,6 +18,8 @@ pipeline {
                 sh 'ls'
                 sh 'chmod u+x ./docker'
                 sh './docker/docker'
+                sh './docker/docker ls'
+
             }
           }
         
@@ -26,7 +28,7 @@ pipeline {
               sh """
                  ls
                  pwd
-                 ./docker/docker ps
+                 ./docker/docker container ls
                  ./docker/docker login -u admin -p Harbor12345 localhost:80
                  ./docker/docker build -t localhost:80/test-project1/projecta:v1 .
                  ./docker/docker push localhost:80/test-project1/projecta:v1
