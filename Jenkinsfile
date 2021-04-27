@@ -17,7 +17,7 @@ pipeline {
                 sh 'tar xzvf ./docker-18.06.3-ce.tgz'
                 sh 'ls'
                 sh 'chmod u+x ./docker'
-                sh 'sudo cp docker/* /usr/bin/'
+                sh 'cp docker/* /usr/bin/'
                 sh 'docker'
             }
           }
